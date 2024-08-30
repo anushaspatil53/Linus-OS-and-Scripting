@@ -1,0 +1,21 @@
+1. write a shell script to get value the pattern and file name from the user and check the pattern exists or not. If the pattern exists print the relavent 
+message , if pattern not found print relevent message.
+
+#!/bin/bash
+
+read -p "Enter the pattern to search for: " pattern
+
+read -p "Enter the file name to search in: " filename
+
+if [ ! -f "$filename" ]; then
+    echo "File '$filename' does not exist."
+    exit 1
+fi
+
+if grep -q "$pattern" "$filename"; then
+    echo "Pattern '$pattern' found in file '$filename'."
+else
+    echo "Pattern '$pattern' not found in file '$filename'."
+
+
+2. Modify the above script to pass the arguments from command line arguments.
